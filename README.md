@@ -1,4 +1,4 @@
-# SilverMist
+# SilvrMist
 Script changes your dynamic ip address. If you have a dynamic ip address that you want changed thru linux terminal, 
 this script does exactly that. You must be sure that You Have a Dynamic IP Address or this script may not work.
 I noticed that you cant use this script too often as sometimes you'd get the same ip as you already have. 
