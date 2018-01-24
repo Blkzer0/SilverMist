@@ -37,7 +37,7 @@ echo ""
     echo "interface has been changed"
 
     read -p "Select the interface to renew:" interface
-    read -p  "Input a valid ip:" ip #(You need to enter any random ip as long as its live)
+    read -p  "Input a valid ip:" ip #(You need to enter either your ip or any other as long as its valid)
     dhcpcd -k $interface ; sleep 4s; dhcpcd -r $ip -l 1000 $interface
 
     echo "IP should be changed now"
