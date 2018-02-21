@@ -1,7 +1,6 @@
 #!/bin/bash
 
  #Needs to run as root!!
-
 if [[ $EUID -ne 0 ]]; then
 	echo "ERROR! Run this script with root user!"
 	exit 1
@@ -26,7 +25,7 @@ echo ""
     echo " You're ip is:"
     curl ipinfo.io/ip
     sleep 1
-    echo  "Checking Interface.."
+    echo  "Checking Interface.."   #target interface should be of your LAN such as eth0.
     iwconfig
     sleep 3
     read -p "what is the interface?" interface
@@ -48,5 +47,4 @@ echo ""
     curl ipinfo.io/ip
     sleep 3
     firefox https://dnsleaktest.com
-
-        exit
+    	exit
