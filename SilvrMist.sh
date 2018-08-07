@@ -13,38 +13,29 @@ echo " |____   |__|__|\___/|__| |. \_/  |__|_____|____|"
 echo " |:  1   |                |:  |   |              "
 echo " |::.. . |                |::.|:. |              "
 echo " |-------'                |--- ---'              "
-echo "   Version 1.0"
+echo "   Version 1.1"
 echo "  Coded by: Blkzer0 "
-echo ""
 echo ""
                                                  
     echo "Installing dhcpcd required to run this script"
     sleep 1
-    apt-get install dhcpcd
+    apt-get install dhcpcd macchanger
 
     echo " You're ip is:"
     curl ipinfo.io/ip
     sleep 1
     echo  "Checking Interface.."   #target interface should be of your LAN such as eth0.
     iwconfig
-    sleep 3
     read -p "what is the interface?" interface
     ifconfig $interface down
     macchanger -r $interface
-    sleep 2
     ifconfig $interface up
     echo "interface has been changed"
 
-    read -p "Select the interface to renew:" interface
     read -p  "Input a valid ip:" ip #(You need to enter either your ip or any other as long as its valid)
     dhcpcd -k $interface ; sleep 4s; dhcpcd -r $ip -l 1000 $interface
-
-    echo "IP should be changed now"
-    sleep 1
+    
     echo "Verifying ip has been changed"
-    sleep 1
     echo " You're ip is:"
     curl ipinfo.io/ip
-    sleep 3
-    firefox https://dnsleaktest.com
     	exit
