@@ -26,14 +26,14 @@ echo ""
     sleep 1
     echo  "Checking Interface.."   #target interface should be of your LAN such as eth0.
     iwconfig
-    read -p "what is the interface?" interface
+    read -p "what is the lan interface?" interface
     ifconfig $interface down
     macchanger -r $interface
     ifconfig $interface up
     echo "interface has been changed"
 
-    read -p  "Input a valid ip:" ip #(You need to enter either your ip or any other as long as its valid)
-    dhcpcd -k $interface ; sleep 4s; dhcpcd -r $ip -l 1000 $interface
+    read -p  "Input a valid ip:" ip #()
+    dhcpcd -k $interface ; sleep 1s; dhcpcd -r $ip -l 1000 $interface
     
     echo "Verifying ip has been changed"
     echo " You're ip is:"
