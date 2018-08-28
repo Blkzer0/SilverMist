@@ -19,7 +19,7 @@ echo ""
                                                  
     echo "Installing dhcpcd required to run this script"
     sleep 1
-    apt-get install dhcpcd macchanger
+    apt-get install dhcpcd5 macchanger
 
     echo " You're ip is:"
     curl ipinfo.io/ip
